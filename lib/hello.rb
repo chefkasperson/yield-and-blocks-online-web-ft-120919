@@ -1,10 +1,15 @@
 def hello_t(array)
-  if array.length > 0
-    array.each {|name| puts name}
-  else
+  if block_given?
+    i= 0
+
+    while i < array.length
+      yield(array[i])
+    end 
+    array
+  else 
     puts "Hey! No block was given!"
   end
-
+  
 end
 
 # call your method here!
